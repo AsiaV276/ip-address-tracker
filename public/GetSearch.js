@@ -3,7 +3,7 @@ const getSearch = async () => {
     
     var ipAddress = document.getElementById('ipAddress').value;
     console.log(ipAddress);
-
+   
     const api_url = `/ip/${ipAddress}`;
     const response = await fetch(api_url);
     const json = await response.json();
@@ -27,4 +27,5 @@ const getSearch = async () => {
     document.getElementById('timezone').innerHTML = "UTC " + json.location.timezone;
     document.getElementById('isp').innerHTML = json.isp;
 
+    
 }
