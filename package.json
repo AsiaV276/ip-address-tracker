@@ -1,0 +1,17 @@
+{
+  "name": "ip-address-tracker-master",
+  "version": "1.0.0",
+  "description": "Ip address tracker with map",
+  "main": "IPAddress.js",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Asia Valentine",
+  "license": "MIT"
+}

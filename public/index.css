@@ -1,0 +1,130 @@
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
+
+body { 
+    margin: 0; 
+    font-family: 'Rubik';
+
+}
+h2 { margin: 0; }
+
+header {
+  background: url('./images/pattern-bg.png');
+  text-align: center;
+  color: whitesmoke;
+  padding: 25px;
+  height: 200px;
+}
+
+/*#form {
+  height: 50px;
+}*/
+
+.form-input {
+  display: block;
+  margin: auto;
+  width: fit-content;
+  padding-top: 25px;
+}
+
+.form-input input {
+  padding: 16px;
+  border-style: none;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  width: 60vw;
+}
+
+.form-input button {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background-color: black;
+  color: white;
+  float: right;
+  padding: 15px;
+  border: none;
+  cursor: pointer;
+}
+
+#info-container {
+  margin: auto;
+  width: 70vw;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  background-color: whitesmoke;
+  border-radius: 10px;
+  position: relative;
+  top: 40px;
+  color: black;
+  padding: 25px;
+  z-index: 2;
+}
+
+.info-box {
+  height: 50px;
+  width: 100%;
+  text-align: center;
+}
+.info-box:not(:last-child) {
+  padding-bottom: 15px;
+}
+.info-box h4 {
+  margin: 0;
+  color: hsl(0, 0%, 59%);
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 3px;
+  font-size: 12px;
+  padding-bottom: 5px;
+}
+.info-box p {
+  font-weight: 900;
+  font-size: 18px;
+  margin: 0;
+}
+
+.api-data {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+@media only screen and (min-width: 600px) {
+  #info-container {
+    display: flex;
+    flex-direction: row;
+    width: max-content;
+  }
+  
+  .info-box {
+    min-width: 100px;
+    height: 80px;
+    text-align: left;
+  }
+
+  .info-box:not(:first-child) {
+    border-left: solid hsl(0, 0%, 59%) 1px;
+    padding-left: 10px;
+  }
+
+  .info-box:last-child {
+    padding-bottom: 15px;
+  }
+
+  .form-input input {
+    width: 300px;
+  }
+}
+
+@media only screen and (min-width: 910px) {
+  .info-box {
+    width: 200px;
+  }
+}
+
+
+
+#mapid {
+  height: 500px;
+  z-index: 1;
+}
