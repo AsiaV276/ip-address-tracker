@@ -4,7 +4,7 @@ const getSearch = async () => {
     if(ipAddress == "") {
         alert('Please enter a valid ip address');
     } else {
-        const loader = `<div class="lds-facebook"><div></div><div></div><div></div></div>`;
+        const loader = `<div class="loading"><div></div><div></div><div></div><div></div></div>`;
         document.getElementById('ip').innerHTML = loader;
         document.getElementById('location').innerHTML = loader;
         document.getElementById('timezone').innerHTML = loader;
@@ -33,8 +33,6 @@ const getSearch = async () => {
         document.getElementById('timezone').innerHTML = "UTC " + json.location.timezone;
         document.getElementById('isp').innerHTML = json.isp;
 
-    
-        
         
     }
 }
