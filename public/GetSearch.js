@@ -24,7 +24,7 @@ const getSearch = async () => {
             iconAnchor: [25, 16],
         });
 
-
+    setTimeout(function() {
         L.marker([latitude, longitude], { icon: myIcon }).addTo(mymap);
         mymap.setView([latitude, longitude], 13);
 
@@ -32,7 +32,7 @@ const getSearch = async () => {
         document.getElementById('location').innerHTML = json.location.city + ", " + json.location.region + " " + json.location.postalCode;
         document.getElementById('timezone').innerHTML = "UTC " + json.location.timezone;
         document.getElementById('isp').innerHTML = json.isp;
-
+    }, 2000);
         
     }
 }
