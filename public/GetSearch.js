@@ -4,11 +4,17 @@ const getSearch = async () => {
     if(ipAddress == "") {
         alert('Please enter a valid ip address');
     } else {
+        const loader = `<div class="lds-facebook"><div></div><div></div><div></div></div>`;
+        document.getElementById('ip').innerHTML = loader;
+        document.getElementById('location').innerHTML = loader;
+        document.getElementById('timezone').innerHTML = loader;
+        document.getElementById('isp').innerHTML = loader;
+
         const api_url = `/ip/${ipAddress}`;
         const response = await fetch(api_url);
         const json = await response.json();
-        console.log(json);
         
+       
         var latitude = json.location.lat;
         var longitude = json.location.lng;
 
@@ -27,5 +33,8 @@ const getSearch = async () => {
         document.getElementById('timezone').innerHTML = "UTC " + json.location.timezone;
         document.getElementById('isp').innerHTML = json.isp;
 
+    
+        
+        
     }
 }
