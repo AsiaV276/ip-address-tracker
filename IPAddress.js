@@ -10,10 +10,15 @@ const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`listening at ${port}`));
 app.use(express.static('public'));
 
-app.get('/ip/:ipAddress', async (req, res) => {
+app.get('/ipgeo/:ipAddress?/:domain?', async (req, res) => {
     console.log(req.params);
-    const ipAddress = req.params.ipAddress
-    const api_url = `https://geo.ipify.org/api/v1?apiKey=${process.env.IP_API_KEY}&ipAddress=${ipAddress}`
+    const ipAddress = req.params.ipAddress;
+    const domain = req.params.domain;
+    if(domain == undefined) {
+        var api_url = `https://geo.ipify.org/api/v1?apiKey=${process.env.IP_API_KEY}&ipAddress=${ipAddress}`
+    } else {
+        var api_url = `https://geo.ipify.org/api/v1?apiKey=${process.env.IP_API_KEY}&ipAddress=${domain}`
+    }
     const ipAddressResponse = await fetch(api_url);
     const json = await ipAddressResponse.json();
     res.json(json); //makes the api call and then sends back to client, proxy server

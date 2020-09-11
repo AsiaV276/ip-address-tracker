@@ -9,7 +9,8 @@ body {
 h2 { margin: 0; }
 
 header {
-  background: url('./images/pattern-bg.png');
+  background: url('./images/pattern-bg.png') no-repeat;
+  background-size: cover;
   text-align: center;
   color: whitesmoke;
   padding: 25px;
