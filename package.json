@@ -14,6 +14,5 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Asia Valentine",
-  "license": "MIT",
-  "type": "module"
+  "license": "MIT"
 }
