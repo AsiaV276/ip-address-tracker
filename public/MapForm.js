@@ -1,11 +1,11 @@
 var mymap = L.map('mapid').setView([0,0], 13);
 
-var showIPAddressMap = async (json) => {
+const showIPAddressMap = async (json) => {
     //gets ip address from api.ipify, script in html, stores in json variable on page load
     
     //ip address added to url and url is used to fetch latitude and longitude points
     const ipAddress = json.ip;
-    const api_url = `/ipgeo/${ipAddress}`;
+    const api_url = `/${ipAddress}`;
     const response = await fetch(api_url);
     const ipJson = await response.json();
 
@@ -31,8 +31,7 @@ var showIPAddressMap = async (json) => {
 }
 
 
-
-var getSearch = async () => {
+const getSearch = async () => {
     //e.preventDefault();
     var inputValue = document.getElementById('ipAddress').value;
     if(inputValue == "") {
@@ -47,7 +46,7 @@ var getSearch = async () => {
         var ipAddress = inputValue;
         //var domain = 'https://corporate.comcast.com/'
         
-        const api_url = `/ipgeo/${ipAddress}`;
+        const api_url = `/${ipAddress}`;
         const response = await fetch(api_url);
         const json = await response.json();
        

@@ -10,7 +10,7 @@ const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`listening at ${port}`));
 app.use(express.static('public'));
 
-app.get('/ipgeo/:ipAddress?/:domain?', async (req, res) => {
+app.get('/:ipAddress?/:domain?', async (req, res) => {
     console.log(req.params);
     const ipAddress = req.params.ipAddress;
     const domain = req.params.domain;
