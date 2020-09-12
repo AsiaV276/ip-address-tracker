@@ -3,6 +3,12 @@ var mymap = L.map('mapid').setView([0,0], 13);
 const showIPAddressMap = async (json) => {
     //gets ip address from api.ipify, script in html, stores in json variable on page load
     
+    //loading
+    const loader = `<div class="loading"><div></div><div></div><div></div><div></div></div>`;
+    document.getElementById('ip').innerHTML = loader;
+    document.getElementById('location').innerHTML = loader;
+    document.getElementById('timezone').innerHTML = loader;
+    document.getElementById('isp').innerHTML = loader;
     //ip address added to url and url is used to fetch latitude and longitude points
     const ipAddress = json.ip;
     const api_url = `/${ipAddress}`;
@@ -13,12 +19,14 @@ const showIPAddressMap = async (json) => {
     const longitude = ipJson.location.lng;
     
     //adds json data to page
-    document.getElementById('ipAddress').value = ipAddress;
-    document.getElementById('ip').innerHTML = ipAddress;
-    document.getElementById('location').innerHTML = ipJson.location.city + ", " + ipJson.location.region + " " + ipJson.location.postalCode;
-    document.getElementById('timezone').innerHTML = "UTC " + ipJson.location.timezone;
-    document.getElementById('isp').innerHTML = ipJson.isp;
-
+    setTimeout(function() {
+        document.getElementById('ipAddress').value = ipAddress;
+        document.getElementById('ip').innerHTML = ipAddress;
+        document.getElementById('location').innerHTML = ipJson.location.city + ", " + ipJson.location.region + " " + ipJson.location.postalCode;
+        document.getElementById('timezone').innerHTML = "UTC " + ipJson.location.timezone;
+        document.getElementById('isp').innerHTML = ipJson.isp;
+    }, 1000);
+    
     
     //longitude and latitude points added to the map
     var points = [latitude, longitude];
@@ -39,9 +47,6 @@ const getSearch = async () => {
         document.getElementById('location').innerHTML = loader;
         document.getElementById('timezone').innerHTML = loader;
         document.getElementById('isp').innerHTML = loader;
-
-        //var ipAddress = inputValue;
-        //var domain = 'https://corporate.comcast.com/'
         
         const api_url = `/${inputValue}`;
         const response = await fetch(api_url);
