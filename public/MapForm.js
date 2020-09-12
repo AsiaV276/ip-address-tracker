@@ -11,10 +11,7 @@ const showIPAddressMap = async (json) => {
 
     const latitude = ipJson.location.lat;
     const longitude = ipJson.location.lng;
-    console.log(ipJson);
-    console.log(ipJson.as.domain); //https://corporate.comcast.com/
-
-
+    
     //adds json data to page
     document.getElementById('ipAddress').value = ipAddress;
     document.getElementById('ip').innerHTML = ipAddress;
@@ -43,10 +40,10 @@ const getSearch = async () => {
         document.getElementById('timezone').innerHTML = loader;
         document.getElementById('isp').innerHTML = loader;
 
-        var ipAddress = inputValue;
+        //var ipAddress = inputValue;
         //var domain = 'https://corporate.comcast.com/'
         
-        const api_url = `/${ipAddress}`;
+        const api_url = `/${inputValue}`;
         const response = await fetch(api_url);
         const json = await response.json();
        
@@ -59,7 +56,7 @@ const getSearch = async () => {
             document.getElementById('location').innerHTML = json.location.city + ", " + json.location.region + " " + json.location.postalCode;
             document.getElementById('timezone').innerHTML = "UTC " + json.location.timezone;
             document.getElementById('isp').innerHTML = json.isp;
-        }, 2000);
+        }, 1750);
 
         getMap(points);
     }
@@ -74,6 +71,9 @@ function getMap(points) {
         id: 'mapbox/streets-v11',
         tileSize: 512,
         zoomOffset: -1,
+        //inertia: true,
+        //inertiaDeceleration: 3000,
+        
         accessToken: 'pk.eyJ1IjoidmEyNzYiLCJhIjoiY2tlaG9tb3F5MTVhbzJybXpkaHRpZXE5dSJ9.h24ofxQNklYPfEHCNFFyTA'
     }).addTo(mymap);
 
@@ -84,6 +84,7 @@ function getMap(points) {
     });
 
     mymap.setView(points, 13);
+    
     L.marker(points, { icon: myIcon }).addTo(mymap);
     
 }
